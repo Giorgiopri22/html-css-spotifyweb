@@ -257,24 +257,23 @@ main nav.main-nav .nav-bottom {
 
 
 /* MAIN CONTENT */
-/* per il layout delle macroaree usiamo float e calc */
+
 main #content {
   float: left;
   width: calc(100% - 230px);
   height: 100%;
-  /* con overflow il testo non può uscire dal container e facciamo comparire la scrollbar solo quando serve */
   overflow-y: auto;
-  /* nascondiamo la scroll laterale per nascondere gli album in eccesso */
   overflow-x: hidden;
   background: #141922;
 }
+
 @media screen and (max-width: 600px) {
   main #content {
     width: calc(100% - 50px);
   }
 }
 
-/* call to action */
+
 main #content .call-to-action {
   position: fixed;
   z-index: 1;
@@ -297,12 +296,12 @@ main #content .call-to-action {
 }
 
 /* nav  */
-main #content .main-content-nav {
+.main-content-nav {
   width: 100%;
   margin-top: 90px;
   text-align: center;
 }
-main #content .main-content-nav a {
+.main-content-nav a {
   position: relative;
   padding-bottom: 5px;
 }
@@ -318,7 +317,7 @@ main #content .main-content-nav a.active:after {
   background: greenyellow;
 }
 
-/* covers */
+
 main #content .covers .covers-row > p{ 
   margin-top: 10px;
 }
@@ -344,20 +343,25 @@ main #content .covers .covers-list .cover-item {
     margin-right: 10px;
   }
   
-  
-  main #content .covers .covers-list .cover-item:nth-last-child(-n+2):not(:nth-child(-n+2)) {
-    display: none;
+  main #content .covers .covers-list{
+    display: flex;
+    margin: 30px 0;
+    flex-wrap: wrap;
   }
+  
 }
 @media screen and (max-width: 700px) {
   main #content .covers .covers-list .cover-item {
     width: calc(100% / 2 - 10px);
     margin-right: 10px;
   }
-  
-  main #content .covers .covers-list .cover-item:nth-last-child(-n+4):not(:nth-child(-n+2)) {
-    display: none;
+
+  main #content .covers .covers-list{
+    display: flex;
+    margin: 30px 0;
+    flex-wrap: wrap;
   }
+ 
 }
 main #content .covers .covers-list .cover-item .cover-container {
   position: relative;
@@ -369,7 +373,6 @@ main #content .covers .covers-list .cover-item .cover-container .cover-layover{
   position: absolute;
   top: 0;
   left: 0;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -377,28 +380,31 @@ main #content .covers .covers-list .cover-item .cover-container .cover-layover{
   height: 100%;
   font-size: 60px;
 }
-main #content .covers .covers-list .cover-item .cover-container .cover-layover i{
-  display: none;
+main #content .covers #popular .cover-item .cover-container img{
+  border-radius: 100%;
 }
-main #content .covers .covers-list .cover-item:hover .cover-container .cover-layover {
-  background-color: rgba(0, 0, 0, 0.5);
-}
+
+
 main #content .covers .covers-list .cover-item:hover .cover-container .cover-layover i {
   display: inline;
 }
 main #content .covers .covers-list .cover-item .cover-text{
  text-align: center;
 }
+main #content .covers .covers-list .cover-item:hover .cover-container .cover-layover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 main #content .covers .covers-list .cover-item .cover-text h3{
- font-size: 16px;
- line-height: 16px;
+ font-size: 18px;
+ line-height: 18px;
 }
 main #content .covers .covers-list .cover-item .cover-container img{
   width: 100%;
 }
-main #content .covers #popular .cover-item .cover-container img{
-  border-radius: 100%;
+main #content .covers .covers-list .cover-item .cover-container .cover-layover i{
+  display: none;
 }
+
 main #content .covers #popular .cover-item .cover-container {
   border-radius: 100%;
   overflow: hidden;
@@ -458,13 +464,13 @@ footer #player .player-album .player-icons i{
   margin-left: 10px;
 }
 
-/* player controller */
+
 footer #player .player-controller {
   width: 40%;
   height: 100%;
 }
 
-/* player controller icons */
+
 footer #player .player-controller .player-controller-icons {
   height: 60%;
 }
@@ -521,6 +527,7 @@ footer #player .player-bar .controller-elapsed.perc-20 {
 footer #player .player-bar:hover .controller-elapsed {
   background-color: greenyellow;
 }
+
 footer #player .player-bar:hover .controller-elapsed .controller-elapsed-point {
   position: absolute;
   top: 50%;
@@ -540,6 +547,7 @@ footer #player .player-audio ul {
   align-items: center;
   height: 100%;
 }
+
 footer #player .player-audio .player-audio-volume {
   width: 70%;
   display: flex;
